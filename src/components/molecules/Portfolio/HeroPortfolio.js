@@ -6,7 +6,7 @@ import { CiFilter } from "react-icons/ci";
 import { FiRefreshCw } from "react-icons/fi";
 import { AiOutlinePrinter } from "react-icons/ai";
 
-export default function HeroCustomers() {
+export default function HeroPortfolio() {
   return (
     <div className="flex flex-row lg:flex-col bg-[#5D5FEF] lg:bg-white    mx-3 lg:mx-0 md:mx-0">
       <div className="lg:bg-[#5D5FEF] md:bg-[#5D5FEF] mt-2  lg:rounded-lg md:rounded-lg lg:mr-2">

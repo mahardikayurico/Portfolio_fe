@@ -5,7 +5,7 @@ import { TbPencilMinus } from "react-icons/tb";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from "axios";
 
-export default function TableCustomers() {
+export default function TablePortfolio() {
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
     axios
