@@ -1,18 +1,17 @@
 import React from "react";
-import PortfolioMains from "../../components/organisms/Portfolio/PortfolioMains";
-// import LayoutMains from "../../components/organisms/LayoutMains";
+import SummaryMains from "../../components/organisms/Portfolio/SummaryMains";
 import LayoutResponsive from "../../components/organisms/LayoutResponsive";
 
 const HomePages = () => {
   return (
-    <>
+    <div className="bg-black">
       <LayoutResponsive />
-      <div className="container flex lg:flex-row md:flex-row flex-col lg:p-5 lg:mx-auto md:p-3 md:mx-auto w-full">
+      <div className="container flex lg:flex-row md:flex-row  flex-col lg:p-5 lg:mx-auto md:p-3 md:mx-auto w-full">
         <section className="lg:basis-[100%]  lg:ml-3 md:ml-3 ">
-          <PortfolioMains />
+          <SummaryMains />
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

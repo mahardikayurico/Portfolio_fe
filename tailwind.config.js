@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "bg-analystic": "url('/src/assets/images/bgAnalystic.svg')",
+        "background-header": "url('/src/assets/images/backgroundheader.jpg')",
       },
       fontFamily: {
         "family-quicksand": ["Quicksand", "sans-serif"],

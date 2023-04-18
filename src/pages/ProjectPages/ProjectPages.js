@@ -1,6 +1,4 @@
 import React from "react";
-import PortfolioMains from "../../components/organisms/Portfolio/PortfolioMains";
-// import LayoutMains from "../../components/organisms/LayoutMains";
 import LayoutResponsive from "../../components/organisms/LayoutResponsive";
 
 const ProjectPages = () => {
