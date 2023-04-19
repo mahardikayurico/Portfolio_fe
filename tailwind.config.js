@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "background-header": "url('/src/assets/images/backgroundheader.jpg')",
+        "background-edu": "url('/src/assets/images/bg-edu.jpg')",
       },
       fontFamily: {
         "family-quicksand": ["Quicksand", "sans-serif"],
