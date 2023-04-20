@@ -1,7 +1,22 @@
 import React from "react";
 import { GrMapLocation } from "react-icons/gr";
+import axios from "axios";
 
 export default function MyExperience() {
+  const [experience, setExperience] = React.useState([]);
+
+  // const navigate = useNavigate();
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/v1/experience/1")
+      .then((response) => {
+        setExperience(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <div className="pt-[8rem] flex flex-row">
@@ -11,28 +26,16 @@ export default function MyExperience() {
             Experience
           </h1>
         </div>
-        <div className="basis-[70%] ml-3  p-2 px-5 ml-4 rounded-xl  bg-black">
-          <h1 className="text-xl font-[700] text-yellow-300 text-center lg:text-start md:text-start font-family-quicksand">
-            WebGIS Developer, Pusat Studi Managemen Bencana UPN “Veteran”
-            Yogyakarta Des 2021- Sep 2022
-          </h1>
-          <h3 className="text-yellow-300 font-family-satoshi mb-6">
-            <ol>
-              <li>
-                - Collecting geospatial data, processing geospatial data,
-                designing and building MySql Database System
-              </li>
-              <li>
-                - Building Fullstack WebGIS using Leaflet js, HTML, CSS, and
-                CodeIgniter
-              </li>
-              <li>
-                - Conducting SUS and Black Box Testing of WebGIS Development
-                Results
-              </li>
-            </ol>
-          </h3>
-        </div>
+        {experience.map((item) => (
+          <div className="basis-[70%] ml-3  p-2 px-5 ml-4 rounded-xl  bg-black">
+            <h1 className="text-xl font-[700] text-yellow-300 text-center lg:text-start md:text-start font-family-quicksand">
+              {item.experience_name}
+            </h1>
+            <h3 className="text-yellow-300 font-family-satoshi mb-6">
+              {item.description}
+            </h3>
+          </div>
+        ))}
       </div>
     </div>
   );

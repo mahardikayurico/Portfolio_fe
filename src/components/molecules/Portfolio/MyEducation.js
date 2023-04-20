@@ -1,8 +1,23 @@
 import React from "react";
 import { IoIosSchool } from "react-icons/io";
 import { BsArrowRightCircleFill } from "react-icons/bs";
+import axios from "axios";
 
 export default function MyEducation() {
+  const [education, setEducation] = React.useState([]);
+
+  // const navigate = useNavigate();
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/v1/education/1")
+      .then((response) => {
+        setEducation(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <div className="pt-[8rem]">
@@ -14,20 +29,12 @@ export default function MyEducation() {
         </div>
         <div className="mt-12  p-2 px-5 ml-4 rounded-xl bg-black">
           <ol className="text-center">
-            <li className="text-yellow-300 text-lg font-bold flex flex-row">
-              <BsArrowRightCircleFill className="text-lg mr-4 mt-1" />
-              <h1>
-                Fullstack Website Development, Fazztrack Bootcamp Nov 2022 - Mar
-                2023
-              </h1>
-            </li>
-            <li className="text-yellow-300 text-lg font-bold flex flex-row">
-              <BsArrowRightCircleFill className="text-lg mr-4 mt-1" />
-              <h1>
-                Bachelor’s degree in Geodesy Informatics Engineering, UPN
-                “Veteran” Yogyakarta Aug 2018 – Okt 2022
-              </h1>
-            </li>
+            {education.map((item) => (
+              <li className="text-yellow-300 text-lg font-bold flex flex-row">
+                <BsArrowRightCircleFill className="text-lg mr-4 mt-1" />
+                <h1>{item.education}</h1>
+              </li>
+            ))}
           </ol>
         </div>
       </div>
