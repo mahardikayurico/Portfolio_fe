@@ -1,6 +1,21 @@
 import React from "react";
+import axios from "axios";
 
 export default function MyProjects() {
+  const [projects, setProjects] = React.useState([]);
+
+  // const navigate = useNavigate();
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/v1/projects/1")
+      .then((response) => {
+        setProjects(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <div className=" pt-28 ">
@@ -10,7 +25,7 @@ export default function MyProjects() {
           </h1>
           <div>
             <div className="grid grid-cols-3 gap-3 mt-6">
-              {[1, 2, 3, 4, 5].map(() => (
+              {projects.map((item) => (
                 <div className="max-w-sm rounded overflow-hidden shadow-lg bg-black text-yellow-400">
                   <img
                     className="w-full"
@@ -19,12 +34,10 @@ export default function MyProjects() {
                   />
                   <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2 text-yellow-400">
-                      The Coldest Sunset
+                      {item.project_name}
                     </div>
                     <p className="text-gray-700 text-base text-yellow-400">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                      exercitationem praesentium nihil.
+                      {item.description}
                     </p>
                   </div>
                   <div className="px-6 pt-4 pb-2">
